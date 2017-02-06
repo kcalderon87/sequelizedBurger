@@ -3,6 +3,12 @@ var Sequelize = require("sequelize");
 
 // Creates mySQL connection using Sequelize
 var sequelize = new Sequelize("burgers_db", "root", "", {
+  
+  // host: "ryvdxs57afyjk41z.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
+  // dialect: "mysql",
+
+
+
   host: "localhost",
   dialect: "mysql",
   pool: {

@@ -2,8 +2,8 @@ var db = require("../models/burger.js")
 
 module.exports = function(app) {
 
-  // GET route for getting all of the burgers
-  app.get("/api/burger", function(req, res) {
+  // GET route for getting all of the burgers already in db
+  app.get("/api/burgers", function(req, res) {
     
       db.Burger.findAll({})
       .then(function(result) {
@@ -14,7 +14,7 @@ module.exports = function(app) {
   };
 
   // POST route for saving a new burger.
-  app.post("/api/burger", function(req, res) {
+  app.post("/api/burgers", function(req, res) {
 
     db.Burger.create({
       burger_name: req.body.burger_name,
@@ -26,7 +26,7 @@ module.exports = function(app) {
   });
 
   //PUT/UPDATE route
-  app.put("/api/burger", function(req, res) {
+  app.put("/api/burgers", function(req, res) {
 
     db.Burger.update({
       burger_name: req.body.burger_name,
