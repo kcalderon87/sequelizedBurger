@@ -1,12 +1,17 @@
+var express = require("exports");
+var path = require("path");
+var app = express.Router();
+var Burger = require("./models/burger.js")
+
 var db = require("../models/burger.js")
 
 module.exports = function(app) {
 
   // GET route for getting all of the burgers already in db
-  app.get("/api/burgers", function(req, res) {
+  app.get("/api/burger", function(req, res) {
     
       db.Burger.findAll({})
-      .then(function(result) {
+      .then(function(dbBurger) {
         res.json(dbBurger);
       });
     })
@@ -14,7 +19,7 @@ module.exports = function(app) {
   };
 
   // POST route for saving a new burger.
-  app.post("/api/burgers", function(req, res) {
+  app.post("/api/burger", function(req, res) {
 
     db.Burger.create({
       burger_name: req.body.burger_name,
@@ -26,7 +31,7 @@ module.exports = function(app) {
   });
 
   //PUT/UPDATE route
-  app.put("/api/burgers", function(req, res) {
+  app.put("/api/burger", function(req, res) {
 
     db.Burger.update({
       burger_name: req.body.burger_name,
